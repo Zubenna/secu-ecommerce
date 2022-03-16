@@ -1,0 +1,31 @@
+.btn {
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+.boxone {
+  width: 90%;
+  padding-top: 2em;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.numbox {
+  width: 2em;
+  height: 2em;
+  margin: auto;
+  font-family:'Courier New', Courier, monospace;
+  background-color: green;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5em;
+  border-radius: 50%;
+}
+  
+  
+  

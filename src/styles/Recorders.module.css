@@ -1,0 +1,35 @@
+.recordbox {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.recordersitem {
+  width: 14em;
+  height: 13.5em;
+  border: 1px solid rgb(204, 190, 190);
+  margin-top: 1.5em;
+}
+
+.recordimg {
+  width: 12em;
+  height: 7em;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.textbox {
+  height: 4em;
+  margin: auto;
+  width: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textbox h2 {
+  font-weight: bolder;
+  font-size: 1.2em;
+}
