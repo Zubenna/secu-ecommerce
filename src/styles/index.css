@@ -3,4 +3,6 @@
     left: 0;
     top: 21.5vh;
     width: 100vw;
+    z-index: 15;
+    background: #fff;
 }

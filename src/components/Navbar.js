@@ -66,7 +66,7 @@ const [isOpen, setIsOpen] = useState(false);
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline justify-evenly">
+                <div className="ml-10 flex items-baseline space-x-4">
                    <CameraSystems />
                    <Recorders />
                    <AudioVideo />
@@ -209,7 +209,7 @@ const [isOpen, setIsOpen] = useState(false);
         </Transition>
       </nav>
     </div>
-  </nav>
+    </nav>
  );
 };
 
