@@ -1,0 +1,77 @@
+.sellerBox {
+    height: 55vh;
+    width: 13vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0.1em;
+    box-sizing: border-box;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+.sellerImg {
+  width: 10vw;
+  height: 18vh;
+}
+
+.textBox {
+  width: 11vw;
+  height: 15vh;
+  box-sizing: border-box;
+  padding: 0.2em;
+  text-align: center;
+}
+
+.bestSeller {
+  padding: 1em;
+  background: rgb(245, 236, 236);
+  position: relative;
+}
+
+.nairaSign {
+  margin-top: 3em;
+  padding: 0.2em;
+  color: black;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+
+.next,
+  .prev {
+    width: 5vw;
+    height: 10vh;
+    color: rgb(63, 61, 61);
+    font-size: 2.5em;
+    position: absolute;
+    top: 20vh;
+    z-index: 15;
+    background: transparent;
+  }
+
+  .prev {
+    left: 2vw;
+  }
+
+  .next {
+    right: 2vw;
+  }
+
+  .leftDim,
+  .rightDim {
+    width: 8vw;
+    height: 56vh;
+    background-color: rgba(14, 10, 1, 0.075);
+    position: absolute;
+    z-index: 8;
+  }
+
+  .leftDim {
+    left: 0;
+  }
+
+  .rightDim {
+    right: 0;
+    top: 17.28vh;
+  }

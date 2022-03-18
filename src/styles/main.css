@@ -422,9 +422,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   white-space: nowrap;
   border-width: 0;
 }
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.mt-4 {
+  margin-top: 1rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -441,6 +454,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mr-2 {
   margin-right: -0.5rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -455,6 +471,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-16 {
   height: 4rem;
+}
+.h-5 {
+  height: 1.25rem;
 }
 .h-64 {
   height: 16rem;
@@ -605,6 +624,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.pt-1 {
+  padding-top: 0.25rem;
+}
 .pl-8 {
   padding-left: 2rem;
 }
@@ -626,6 +648,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-center {
   text-align: center;
 }
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -640,6 +666,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .font-bold {
   font-weight: 700;
+}
+.font-black {
+  font-weight: 900;
 }
 .font-extrabold {
   font-weight: 800;
@@ -656,6 +685,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-blue-900 {
+  --tw-text-opacity: 1;
+  color: rgb(30 58 138 / var(--tw-text-opacity));
+}
+.text-yellow-500 {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
 }
 .text-sky-900 {
   --tw-text-opacity: 1;

@@ -32,9 +32,9 @@ const ArrowRight = (props) => (
     nextArrow: <ArrowRight />
   };
       return (
-        <div>
+        <div className="relative">
         <div className={Style.leftDim} ></div>
-        <Slider {...settings} className="">
+        <Slider {...settings} className="absolute">
           <a href="#">
           <div className={Style.itemBox}>
             <img src={SliderOne} className={Style.setImg} />

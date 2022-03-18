@@ -1,0 +1,58 @@
+.sectionBox {
+  width: 100vw;
+  background: #fff;
+}
+
+.textBox {
+  width: 17vw;
+  height: 10vh;
+  box-sizing: border-box;
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.productBox {
+  height: 35vh;
+  width: 17vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0.2em;
+  box-sizing: border-box;
+}
+
+.borderRBottom {
+  border-right: 2px solid rgba(128, 128, 128, 0.075);
+  border-bottom: 2px solid rgba(128, 128, 128, 0.075);
+}
+
+.borderRight {
+  border-right: 2px solid rgba(128, 128, 128, 0.075);
+}
+
+.borderBottom {
+  border-bottom: 2px solid rgba(128, 128, 128, 0.075);
+}
+
+.productBox:hover {
+  height: 35.5vh;
+  width: 17.5vw;
+  box-shadow: 0 0 10px rgba(122, 118, 118, 0.116);
+}
+
+.prodImg {
+  object-fit: cover;
+  height: 25vh;
+}
+
+.textBox a:hover {
+  text-decoration: underline;
+} 
+
+.cateBox {
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 2em auto;
+  box-sizing: border-box;
+}
