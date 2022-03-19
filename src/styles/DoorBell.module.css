@@ -1,0 +1,66 @@
+.doorBell {
+  padding: 6em;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.938);
+  display: flex;
+  justify-content: space-between;
+  z-index: 0;
+  display: absolute;
+}
+
+.bellBox {
+  height: 38vh;
+  width: 41.5vw;
+  border: 2px solid rgba(247, 242, 242, 0.993);
+  display: flex;
+  position: relative;
+}
+
+.imgBox {
+  height: 39vh;
+  position: absolute;
+  left: -4.7em;
+  top: -1.9em;
+}
+
+.imgBoxTwo {
+  position: absolute;
+  left: 1em;
+  top: 1em;
+}
+
+.camBox {
+  position: absolute;
+  left: 0;
+  top: 1em;
+}
+
+.camBoxTwo {
+  position: absolute;
+  width: 14vw;
+  top: 1.5em; 
+  z-index: 10;
+}
+
+.bellImg {
+  width: 20vw;
+}
+
+.camImg {
+  width: 11vw;
+  height: 36vh;   
+}
+
+.bellText {
+  position: absolute;
+  right: 0;
+  width: 28vw;
+  padding: 2em 0.5em;
+}
+
+.listBox li {
+  display: inline-block;
+  font-size: 1em;
+  list-style: none;
+  color: rgba(0, 0, 255, 0.966);
+}
