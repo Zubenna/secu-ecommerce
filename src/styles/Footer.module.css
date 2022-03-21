@@ -1,0 +1,33 @@
+.footerBox {
+  width: 100vw;
+  padding: 2em 6em;
+  background: rgb(14 165 233)
+}
+
+.menuList {
+  list-style: none;
+}
+
+.menuList li a:hover {
+  color: rgb(244 244 245)
+}
+
+.helpBox {
+  text-align: center;
+  width: 12em;
+}
+
+.makeCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footerBrand {
+  list-style: none;
+}
+
+.footerBrand li {
+  display: inline-block;
+}

@@ -1,0 +1,70 @@
+.setInput {
+  width: 34em;
+  height: 2.5em;
+  padding: 0.1em 1em;
+  outline: none;
+  border: none;
+}
+
+.setInput:focus {
+  background: rgba(247, 241, 241, 0.924);
+}
+
+.btn {
+  height: 2.5em;
+  width: 6em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+}
+
+.searchArea {
+  width: 40em;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid rgba(238, 233, 233, 0.945);
+}
+
+.brandBox {
+  display: flex;
+  margin: 3em auto;
+  width: 90vw;
+  justify-content: space-evenly;
+}
+
+.imgBox {
+  height: 2em;
+  width: 5em;
+}
+
+.setImg {
+  object-fit: cover;
+}
+
+.socialBox {
+  display: flex;
+  height: 14em;
+  width: 100vw;
+  /* color: #006eff; */
+  background: rgb(173, 210, 240);
+  padding: 2em 6em;
+}
+
+.iconBox {
+  display: flex;
+  justify-content: space-between;
+  width: 15vw;
+  margin-left: 1em;
+  /* background: rgba(84, 126, 241, 0.979); */
+  /* padding: 2em 6em; */ 
+}
+
+.textBox {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  width: 12vw;
+}

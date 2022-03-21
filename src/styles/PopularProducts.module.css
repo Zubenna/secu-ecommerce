@@ -1,0 +1,45 @@
+.popularBox {
+  margin: 4em auto 0 auto;
+  padding: 0 6em;
+  background: rgb(245, 236, 236);
+  height: auto;
+}
+
+.popBox {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.mainBox {
+  margin-bottom: 4em;
+  width: 36vw;
+}
+
+.msgBox {
+  display: flex;
+  width: 27.3vw;
+  background: rgb(255, 255, 255);
+  height: 35vh;
+  padding: 0.4em;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.textBox a:hover {
+  text-decoration: underline;
+  color: rgba(0, 0, 255, 0.972);
+}
+
+.imgBox {
+ width: 25vw;
+ height: 20vh;
+}
+
+.alignButton {
+ margin-left: 1.5em;
+}
+

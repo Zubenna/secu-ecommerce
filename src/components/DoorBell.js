@@ -42,7 +42,7 @@ const DoorBell = () => {
           </div>
 
           <div className={Style.bellText}>
-             <h1><span className='text-sky-700 font-bold text-2xl tracking-widest'>WINTER </span><span className='text-sky-900 font-black text-2xl tracking-widest'>WARRIOR</span><span className='text-rose-600 font-semibold text-lg'>&#8358; 52.40</span></h1>
+             <h1><span className='text-sky-700 font-bold text-2xl tracking-widest'>WINTER </span><span className='text-sky-900 font-black text-2xl tracking-widest'>WARRIOR </span><span className='text-rose-600 font-semibold text-lg'>&#8358; 52.40</span></h1>
              <h3 className='text-stone-800 text-lg font-extrabold'>5 Megapixel HD Outdoor Dome Camera</h3>
              <ul className={Style.listBox}>
                <li className='pr-2 border-r border-r-blue-500'>HD video</li>
@@ -56,7 +56,6 @@ const DoorBell = () => {
           </div>
        </div>
     </a>
-      
     </div>
   )
 }
