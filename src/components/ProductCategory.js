@@ -25,7 +25,7 @@ const ProductCategory = () => {
           </div>
       </div>
     </a>
-    <a href="#">
+     <a href="#">
       <div className={`${Style.productBox} ${Style.borderRBottom}`}>
           <img src={cateTwo} className={Style.prodImg}/>
           <div className={Style.textBox}>
@@ -97,7 +97,7 @@ const ProductCategory = () => {
           </div>
       </div>
     </a>
-    </section>
+    </section> 
     </div>
   );
 }

@@ -47,8 +47,7 @@
 .socialBox {
   display: flex;
   height: 14em;
-  width: 100vw;
-  /* color: #006eff; */
+  width: 100%;
   background: rgb(173, 210, 240);
   padding: 2em 6em;
 }
@@ -58,8 +57,6 @@
   justify-content: space-between;
   width: 15vw;
   margin-left: 1em;
-  /* background: rgba(84, 126, 241, 0.979); */
-  /* padding: 2em 6em; */ 
 }
 
 .textBox {

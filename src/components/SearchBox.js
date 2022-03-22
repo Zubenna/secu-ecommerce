@@ -12,7 +12,7 @@ import brandSix from "../images/Brand-logo/brand-six.webp";
 
 const SearchBox = () => {
   return (
-    <div className='w-screen'>
+    <div className='w-full'>
     <div>
     <h1 className='text-center font-semibold text-xl pt-8 pb-1'>Discover More</h1>
     <div className='w-14 h-4 flex mx-auto'>

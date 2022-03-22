@@ -14,7 +14,7 @@ const Home = () => (
     <Navbar />
     <SliderBox />
     <ProductCategory /> 
-    <BestSellers />
+    <BestSellers /> 
     <DoorBell />
     <Testimony />
     <PopularProducts />

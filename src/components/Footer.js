@@ -131,7 +131,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-    <div className="bg-white w-screen px-24 pb-3 pt-2 h-12 ">
+    <div className="bg-white w-full px-24 pb-3 pt-2 h-12 ">
         <div className="flex justify-start items-center">
           <img src={logo} className="h-8 w-8" />
           <a href="" className="tracking-wide font-semibold text-sm">

@@ -32,7 +32,7 @@ const ArrowRight = (props) => (
     nextArrow: <ArrowRight />
   };
       return (
-        <div className="relative">
+        <div className="relative w-full">
         <div className={Style.leftDim} ></div>
         <Slider {...settings} className="absolute">
           <a href="#">

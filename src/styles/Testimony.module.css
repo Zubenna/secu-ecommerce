@@ -1,6 +1,7 @@
 .testiSection {
   background: rgba(255, 255, 255, 0.883);
   padding: 0 6em;
+  width: 100%;
 }
 
 .testiBox {

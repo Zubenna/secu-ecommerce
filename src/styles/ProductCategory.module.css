@@ -1,6 +1,8 @@
 .sectionBox {
   width: 100vw;
+  max-width: 100%;
   background: #fff;
+  box-sizing: border-box;
 }
 
 .textBox {
@@ -54,5 +56,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 2em auto;
-  box-sizing: border-box;
+  /* margin: 2em auto; */
+  /* box-sizing: border-box; */
 }

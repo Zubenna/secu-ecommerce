@@ -24,11 +24,11 @@ const Navbar = () => {
 const [isOpen, setIsOpen] = useState(false);
 
  return (
-  <nav className="">
-   <div className="flex h-20 items-center w-screen">
+  <nav className="w-full">
+   <div className="flex h-20 items-center w-full">
      <div className="h-16 pl-8 flex items-center">
        <img src={logo} className="h-14 w-16 mr-2"/>
-       <a href="" className="tracking-wide font-semibold text-2xl"><span className="text-sky-900">Homandoff</span><span className="text-neutral-900">Security</span><span className="text-neutral-600">Products</span></a>
+       <a href="" className="tracking-wide font-semibold text-2xl"><span className="text-sky-900">Homandoff</span><span className="text-neutral-600">Products</span></a>
      </div>
      <div className="pl-2 flex items-center">
        <input type="text" placeholder="Search" className="outline-0 rounded-tl rounded-bl p-2 h-10 w-2/3 bg-slate-300" />
