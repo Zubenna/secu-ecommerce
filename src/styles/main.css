@@ -469,6 +469,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -476,10 +480,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-}
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -511,8 +511,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hidden {
   display: none;
 }
-.h-16 {
-  height: 4rem;
+.h-12 {
+  height: 3rem;
 }
 .h-5 {
   height: 1.25rem;
@@ -528,9 +528,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-2 {
   height: 0.5rem;
-}
-.h-12 {
-  height: 3rem;
 }
 .h-8 {
   height: 2rem;
@@ -661,6 +658,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
+.p-1 {
+  padding: 0.25rem;
+}
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -706,6 +706,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-2 {
   padding-top: 0.5rem;
+}
+.pr-4 {
+  padding-right: 1rem;
 }
 .pb-3 {
   padding-bottom: 0.75rem;
@@ -811,6 +814,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(226 232 240 / var(--tw-text-opacity));
 }
+.text-sky-800 {
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
+}
 .text-neutral-900 {
   --tw-text-opacity: 1;
   color: rgb(23 23 23 / var(--tw-text-opacity));
@@ -834,10 +841,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-blue-800 {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity));
-}
-.text-sky-800 {
-  --tw-text-opacity: 1;
-  color: rgb(7 89 133 / var(--tw-text-opacity));
 }
 .text-blue-700 {
   --tw-text-opacity: 1;

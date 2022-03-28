@@ -2,10 +2,12 @@ import React from "react";
 import Style from "../styles/Footer.module.css";
 import { BsChatFill, BsGearFill } from "react-icons/bs";
 import logo from "../images/secu-logo.png";
+import {FiYoutube, FiFacebook, FiLinkedin} from "react-icons/fi";
+// import FiLinkedin} from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <>
+  <>
     <div className={Style.footerBox}>
       <div className="flex justify-between">
         <nav className="flex">
@@ -99,6 +101,7 @@ const Footer = () => {
             </ul>
           </div>
         </nav>
+      <div>
         <div className="flex">
           <div className={Style.helpBox}>
             <div className={Style.makeCenter}>
@@ -129,19 +132,34 @@ const Footer = () => {
             <p className="text-white font-semibold pt-2">ask@hommandoff.com</p>
           </div>
         </div>
+        </div>
+      </div>
+      <div className={Style.socialBox}>
+      <div>
+        <h2 className='font-extrabold text-lg text-white my-2'>KEEP IN TOUCH</h2>
+      </div>
+      <div className={Style.iconBox}>
+        <a href="">
+        <FiFacebook className="p-1" size={60} style={{color: '#fff'}}/>
+        </a>
+        <a href="">
+        <FiLinkedin className="pr-4" size={60} style={{color: '#fff'}} />
+        </a>
+        <a href="">
+        <FiYoutube size={60} style={{color: '#fff'}} />
+        </a>
       </div>
     </div>
-    <div className="bg-white w-full px-24 pb-3 pt-2 h-12 ">
+    </div> 
+    <div className="flex bg-white w-full px-24 pb-3 pt-2 h-12">
         <div className="flex justify-start items-center">
           <img src={logo} className="h-8 w-8" />
           <a href="" className="tracking-wide font-semibold text-sm">
             <span className="text-sky-900">Homandoff</span>
-            <span className="text-neutral-900">Security</span>
-            <span className="text-neutral-600">Products</span>
           </a>
         </div>
-        <p className="text-xs px-2">
-          <span>&#xA9;2022</span>Hommandoff Security Products. All Rights Reserved
+        <p className="flex items-center text-xs px-2">
+          <span>&#xA9;2022</span>Hommandoff. All Rights Reserved
         </p>
         <ul className={Style.footerBrand}>
           <li className="px-2 text-xs font-semibold border-r-2 border-r-gray-900">
@@ -152,7 +170,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      </>
+   </>
   );
 };
 

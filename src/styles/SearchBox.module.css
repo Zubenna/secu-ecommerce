@@ -43,25 +43,3 @@
 .setImg {
   object-fit: cover;
 }
-
-.socialBox {
-  display: flex;
-  height: 14em;
-  width: 100%;
-  background: rgb(173, 210, 240);
-  padding: 2em 6em;
-}
-
-.iconBox {
-  display: flex;
-  justify-content: space-between;
-  width: 15vw;
-  margin-left: 1em;
-}
-
-.textBox {
-  display: flex;
-  text-align: left;
-  flex-direction: column;
-  width: 12vw;
-}

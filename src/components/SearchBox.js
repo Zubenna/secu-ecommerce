@@ -1,7 +1,5 @@
 import React from 'react';
 import { SearchIcon } from "@heroicons/react/outline";
-import {AiOutlineFacebook, AiOutlineYoutube} from "react-icons/ai";
-import {RiLinkedinLine} from "react-icons/ri";
 import Style from "../styles/SearchBox.module.css";
 import brandOne from "../images/Brand-logo/brand-one.webp";
 import brandTwo from "../images/Brand-logo/brand-two.webp";
@@ -45,7 +43,7 @@ const SearchBox = () => {
        </div>
     </div>
     </div>
-    <div className={Style.socialBox}>
+    {/* <div className={Style.socialBox}>
       <div className={Style.textBox}>
         <h2 className='font-extrabold text-lg text-sky-800 my-2'>KEEP IN TOUCH</h2>
         <p className='font-semibold py-3'>Be sure to follow us on social media for exclusives!</p>
@@ -61,7 +59,7 @@ const SearchBox = () => {
         <AiOutlineYoutube size={50} style={{ fill: '#006eff' }} />
         </a>
       </div>
-    </div>
+    </div> */}
     </div>
   );
 }

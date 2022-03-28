@@ -31,3 +31,24 @@
 .footerBrand li {
   display: inline-block;
 }
+
+.socialBox {
+  display: flex;
+  justify-content: flex-start;
+  height: 6em;
+  width: 100%;
+  align-items: center;
+}
+
+.iconBox {
+  display: flex;
+  width: 10vw;
+  margin-left: 1em;
+}
+
+/* .textBox {
+  display: flex;
+  text-align: left;
+  /* flex-direction: column; 
+  width: 12vw;
+} */
