@@ -5,7 +5,7 @@ const Clearance = () => {
 
     return (
         <div>
-            <button className="h-16 px-2 font-bold text-white hover:bg-white hover:text-blue-800 hover:border-t"
+            <button className="h-12 px-2 font-bold text-white hover:bg-white hover:text-blue-800 hover:border-t"
                  onMouseEnter={e => {
                      setStyle({display: 'block'});
                  }}

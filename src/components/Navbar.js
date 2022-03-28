@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import logo from '../images/secu-logo.png';
+import logo from "../images/secu-logo.png";
+import Style from "../styles/Navbar.module.css";
 import CameraSystems from "./CameraSystems";
 import Recorders from "./Recorders";
 import { SearchIcon,
@@ -19,51 +20,63 @@ import Accessories from "./Accessories";
 import Clearance from "./Clearance";
 import SmartHome from "./SmartHome";
 import Brands from "./Brands";
-// space-x-4
+
 const Navbar = () => {
 const [isOpen, setIsOpen] = useState(false);
 
  return (
-  <nav className="w-full">
-   <div className="flex h-20 items-center w-full">
-     <div className="h-16 pl-8 flex items-center">
-       <img src={logo} className="h-14 w-16 mr-2"/>
-       <a href="" className="tracking-wide font-semibold text-2xl"><span className="text-sky-900">Homandoff</span><span className="text-neutral-600">Products</span></a>
+  <nav>
+   <div className={Style.menuBox}>
+     <div className={Style.logoBox}>
+       <div className={Style.imgBox} >
+        <img src={logo} className="w-12 h-12" alt="" />
+       </div>
+       <a href="" className={Style.brandName}>Homandoff</a>
      </div>
-     <div className="pl-2 flex items-center">
-       <input type="text" placeholder="Search" className="outline-0 rounded-tl rounded-bl p-2 h-10 w-2/3 bg-slate-300" />
-       <button className="h-10 w-24 bg-lime-700 text-white rounded-br outline-0 rounded-tr"><SearchIcon className="ml-8 h-8 w-8"/></button>
+     <div className={Style.searchBox}>
+       <input type="text" placeholder="Search" className={Style.setInput} />
+       <button className=""><SearchIcon className="w-6 h-6 text-slate-50"/></button>
      </div>
-     <div className="ml-12 flex items-center">
+     <div className={Style.menuHolder}>
+     <a href="#">
       <div className="flex items-center">
-        <QuestionMarkCircleIcon className="w-7 h-7 pl-2 pr-1"/>
-        <span className="tracking-wide text-xs font-bold">Help</span>
+        <QuestionMarkCircleIcon className={Style.iconSize}/>
+        <span className={Style.menuText}> Help</span>
       </div>
+      </a>
+      <a href="#">
       <div className="flex items-center">
-        <PhoneIcon className="w-7 h-7 pl-2 pr-1"/>
-        <span className="tracking-wide text-xs font-bold">080 7112 7654</span>
+        <PhoneIcon className={Style.iconSize} />
+        <span className={Style.menuText}>080 7112 7654</span>
       </div>
+      </a>
+      <a href="#">
       <div className="flex items-center">
-        <PencilIcon className="w-7 h-7 pl-2 pr-1"/>
-        <span className="tracking-wide text-xs font-bold">My Quotes</span>
+        <PencilIcon className={Style.iconSize}/>
+        <span className={Style.menuText}>My Quotes</span>
       </div>
+      </a>
+      <a href="#">
       <div className="flex items-center">
-        <ChatIcon className="w-7 h-7 pl-2 pr-1"/>
-        <span className="tracking-wide text-xs font-bold">Chat</span>
+        <ChatIcon className={Style.iconSize} />
+        <span className={Style.menuText}>Chat</span>
       </div>
+      </a>
+      <a href="#">
       <div className="flex items-center">
-        <UserIcon className="w-7 h-7 pl-2 pr-1"/>
-        <span className="tracking-wide text-xs font-bold">My Account</span>
+        <UserIcon className={Style.iconSize} />
+        <span className={Style.menuText}> Account</span>
       </div>
-      <div className="flex items-center">
-        <ShoppingCartIcon className="w-10 h-8 ml-10 pr-2 text-blue-500"/>
-      </div>
+      </a>
      </div>
+     <div className="flex items-center">
+        <ShoppingCartIcon className={Style.iconBasket}/>
+      </div>
    </div>
-   <div>
+   <div className="w-full">
       <nav className="bg-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-12">
             <div className="flex items-center">
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -84,7 +97,7 @@ const [isOpen, setIsOpen] = useState(false);
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="bg-gray-900 inline-flex items-center justify-center rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >

@@ -33,7 +33,7 @@ const ArrowRight = (props) => (
   };
       return (
         <div className="relative w-full">
-        <div className={Style.leftDim} ></div>
+        {/* <div className={Style.leftDim} ></div> */}
         <Slider {...settings} className="absolute">
           <a href="#">
           <div className={Style.itemBox}>
@@ -61,8 +61,8 @@ const ArrowRight = (props) => (
           </div>
           </a>
         </Slider>
-         <div className={Style.rightDim} >
-         </div>
+         {/* <div className={Style.rightDim} >
+         </div> */}
         </div>
       );
 }

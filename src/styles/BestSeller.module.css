@@ -38,7 +38,6 @@
   font-size: 1.1em;
 }
 
-
 .next,
   .prev {
     width: 5vw;
@@ -48,6 +47,7 @@
     position: absolute;
     top: 20vh;
     z-index: 15;
+    cursor: pointer;
     background: transparent;
   }
 
@@ -59,20 +59,20 @@
     right: 2vw;
   }
 
-  .leftDim,
+  /* .leftDim,
   .rightDim {
     width: 8vw;
     height: 55vh;
     background-color: rgba(14, 10, 1, 0.075);
     position: absolute;
     z-index: 8;
-  }
+  } */
 
-  .leftDim {
+  /* .leftDim {
     left: 0;
   }
 
   .rightDim {
     right: 0;
     top: 17.35vh;
-  }
+  } */

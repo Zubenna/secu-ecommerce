@@ -9,7 +9,6 @@
   width: 17vw;
   height: 10vh;
   box-sizing: border-box;
-  margin-top: 1.5em;
   text-align: center;
 }
 
@@ -43,6 +42,7 @@
 
 .prodImg {
   object-fit: cover;
+  width: 17vw;
   height: 25vh;
 }
 
@@ -56,6 +56,4 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 2em auto;
-  /* margin: 2em auto; */
-  /* box-sizing: border-box; */
 }

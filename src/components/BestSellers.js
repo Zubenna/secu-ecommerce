@@ -43,7 +43,7 @@ export const BestSellers = () => {
       <h1 className="my-8 text-center font-black text-black text-3xl">
         Shop Best Sellers
       </h1>
-      <div className={Style.leftDim}></div>
+      {/* <div className={Style.leftDim}></div> */}
       <Slider {...settings} className="absolute">
         <a href="#">
           <div className={Style.sellerBox}>
@@ -299,7 +299,7 @@ export const BestSellers = () => {
           </div>
         </a>
       </Slider>
-      <div className={Style.rightDim}></div>
+      {/* <div className={Style.rightDim}></div> */}
     </div>
   );
 };

@@ -1,0 +1,77 @@
+.menuBox {
+  display: flex;
+  height: 4em;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+}
+
+.searchBox {
+  display: flex;
+  margin-left: 2em;
+}
+
+.searchBox button {
+  width: 8em;
+  background-color: rgb(0, 128, 0);
+  height: 2.3em;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: -2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoBox {
+  display: flex;
+  align-items: center;
+}
+
+.imgBox {
+  height: 3em;
+  width: 3em;
+}
+
+.brandName {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: rgba(15, 15, 236, 0.479);
+  text-decoration: none;
+  
+}
+
+.setInput {
+  height: 2.3em;
+  width: 20em;
+  background: rgb(241, 238, 238);
+  outline: none;
+  border:none;
+  padding: 0.5em 2em;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.menuHolder {
+  margin-left: 7em;
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+}
+
+.iconSize {
+  width: 1em;
+  height: 1em;
+}
+
+.menuText {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.iconBasket {
+  margin-left: 1.4em;
+  width: 1.5em;
+  height: 1.5em;
+  color: rgba(5, 5, 149, 0.911);
+}
