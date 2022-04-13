@@ -8,7 +8,6 @@ import Testimony from '../components/Testimony';
 import PopularProducts from '../components/PopularProducts';
 import SearchBox from '../components/SearchBox';
 import Footer from "../components/Footer";
-
 const Home = () => (
   <div>
     <Navbar />

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
+import { Link } from 'react-router-dom';
 import logo from "../images/secu-logo.png";
 import Style from "../styles/Navbar.module.css";
 import CameraSystems from "./CameraSystems";
@@ -31,7 +32,7 @@ const [isOpen, setIsOpen] = useState(false);
        <div className={Style.imgBox} >
         <img src={logo} className="w-12 h-12" alt="" />
        </div>
-       <a href="" className={Style.brandName}>Homandoff</a>
+       <Link to="/" className={Style.brandName}>Homandoff</Link>
      </div>
      <div className={Style.searchBox}>
        <input type="text" placeholder="Search" className={Style.setInput} />
