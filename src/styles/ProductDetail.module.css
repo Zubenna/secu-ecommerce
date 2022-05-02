@@ -1,0 +1,25 @@
+.wrapper {
+  /* display: flex; */
+  padding: 0 4em;
+}
+
+.ImgContainer {
+  flex: 1;
+  border: 1px solid rgba(241, 236, 236, 0.924);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImgContainer img {
+  width: 30em;
+  height: 30em;
+  object-fit: cover;
+}
+
+.InfoContainer {
+  flex: 1;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}

@@ -6,7 +6,7 @@ const User = require('../models/User');
 const dotenv = require('dotenv');
 dotenv.config();
 
-router.post('/createUser', async (req, res, next) => {
+router.post('/createUser', async (req, res) => {
   // Get user details
   try {
     let {
@@ -27,6 +27,7 @@ router.post('/createUser', async (req, res, next) => {
       res.status(400).send({ msg: 'Phone number must be 11 digits only' });
       return;
     }
+
     // Check required fields
     if (
       !(
@@ -42,26 +43,30 @@ router.post('/createUser', async (req, res, next) => {
       res.status(400).send({ msg: 'Required fields must not be empty' });
       return;
     }
+
     // Check dupllicate email
     const existingEmail = await User.findOne({ email });
     if (existingEmail) {
       res.status(400).send({ msg: 'Email already exist' });
       return;
     }
+
     // Check dupllicate username
     const existingUname = await User.findOne({ username });
     if (existingUname) {
       res.status(400).send({ msg: 'Username already exist' });
       return;
     }
+
     // Check username length
     const nameLength = username.length;
-    if (!(nameLength > 7 && nameLength < 16)) {
+    if (!(nameLength >= 6 && nameLength < 16)) {
       res
         .status(400)
         .send({ msg: 'Username must be in the range 8 - 15 characters' });
       return;
     }
+
     // Check dupllicate phone number
     const existingNumber = await User.findOne({ phone_number });
     if (existingNumber) {
@@ -129,8 +134,9 @@ router.post('/loginUser', async (req, res) => {
       //     phone_number: user.phone_number,
       //     email: user.email,
       //   };
-
-      res.status(200).send({ msg: 'You are logged in' });
+      const { password, ...others } = user._doc;
+      res.status(200).send({ ...others });
+      // res.status(200).send({ msg: 'You are logged in' });
       return;
     }
 

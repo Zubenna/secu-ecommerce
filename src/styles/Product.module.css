@@ -1,0 +1,26 @@
+.productBox {
+  width: 18em;
+  height: 25em;
+  border: 2px solid red;
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+}
+
+.productBox img {
+  margin: 0 auto;
+  width: 14em;
+  height: 15em;
+}
+
+.productBox button {
+  /* display: none; */
+  margin-left: 4.5em;
+}
+
+.productBox:hover button {
+  /* display: block; */
+}
+
+.productBox:hover {
+  /* height: 30em; */
+}

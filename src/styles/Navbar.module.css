@@ -2,7 +2,7 @@
   display: flex;
   height: 4em;
   align-items: center;
-  background: #fff;
+  background-color: rgb(255, 255, 255);
   width: 100%;
 }
 
@@ -38,7 +38,6 @@
   font-weight: bold;
   color: rgba(15, 15, 236, 0.479);
   text-decoration: none;
-  
 }
 
 .setInput {
@@ -46,7 +45,7 @@
   width: 20em;
   background: rgb(241, 238, 238);
   outline: none;
-  border:none;
+  border: none;
   padding: 0.5em 2em;
   border-radius: 6px;
   font-size: 1em;

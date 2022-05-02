@@ -5,6 +5,8 @@ const connectDB = require('./config/db');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
 const productRoute = require('./routes/products');
+const cartRoute = require('./routes/cart');
+const orderRoute = require('./routes/order');
 const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config('.env');
@@ -22,9 +24,11 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(cors());
 // app.use(cookieParser());
 app.use(cors());
-app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
 app.use('/api/product', productRoute);
+app.use('/api/auth', authRoute);
+app.use('/api/cart', cartRoute);
+app.use('/api/order', orderRoute);
 
 // app.get("/", (req, res) => {
 //   res.redirect("/api/cat");

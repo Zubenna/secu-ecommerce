@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  padding: 2em;
+  height: auto;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.loginContainer {
+  flex: 1;
+}
+
+.registerContainer {
+  flex: 1;
+}
+
+.hRule {
+  height: 2px;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+}
+
+.logInput {
+  width: 50%;
+  height: 2.5em;
+  padding: 1em;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  outline: none;
+  margin-bottom: 1em;
+}
+
+.logInput:focus {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.btnStyle {
+  padding: 0.4em 1em;
+  font-size: 1.2em;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  margin-right: 2em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnStyle[disabled='true'] {
+  color: red;
+  cursor: not-allowed;
+}

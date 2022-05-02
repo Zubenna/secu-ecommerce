@@ -36,6 +36,14 @@ const productSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    modelNo: {
+      type: String,
+      required: true,
+    },
+    skuNo: {
+      type: String,
+      required: true,
+    },
 
     image: {
       type: String,

@@ -70,8 +70,8 @@ router.get('/getUser/:id', verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-//GET ALL USER
-router.get('/getAllUsers', verifyTokenAndAdmin, async (req, res) => {
+//GET ALL USER    //verifyTokenAndAdmin,
+router.get('/getAllUsers', async (req, res) => {
   const query = req.query.new;
   try {
     const users = query

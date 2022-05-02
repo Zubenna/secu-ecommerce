@@ -47,6 +47,7 @@ const userSchema = new Schema(
     },
     token: {
       type: String,
+      default: null,
     },
 
     phone_number: {
