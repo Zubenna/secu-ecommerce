@@ -34,7 +34,7 @@ const CameraSystems = () => {
         }}
       >
         <div className={Style.boxone}>
-          <Link to="/listsubproducts" state="Camera Systems">
+          <Link to="/listsubproducts" state="2 Camera Systems">
             <div className="w-52 h-64 border-solid border-2 border-slate-300">
               <img src={secuOne} alt="Camera Systems" className="w-52 h-32" />
               <div className="font-extrabold w-46 px-3 text-center flex items-center h-32 test-dark">

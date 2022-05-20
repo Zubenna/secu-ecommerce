@@ -27,6 +27,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTotalPrice } from '../redux/cartRedux';
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user.currentUser);
   const [isOpen, setIsOpen] = useState(false);
   const cart = useSelector((state) => state.cart);
   const { cartTotalQuantity } = useSelector((state) => state.cart);
@@ -97,7 +98,7 @@ const Navbar = () => {
       </div>
       <div className="w-full">
         <nav className="bg-blue-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
             <div className="flex items-center justify-between h-12">
               <div className="flex items-center">
                 <div className="hidden md:block">
@@ -109,9 +110,20 @@ const Navbar = () => {
                     <Transmission />
                     <Security />
                     <Accessories />
-                    <Clearance />
                     <SmartHome />
                     <Brands />
+                    <div>
+                      {user.isAdmin ? (
+                        <Link
+                          to="/admin"
+                          className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                        >
+                          <span className="text-lg font-bold">Admin Page</span>
+                        </Link>
+                      ) : (
+                        <span className="text-xs text-white">{user.email}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -238,6 +250,14 @@ const Navbar = () => {
                   >
                     <Brands />
                   </a>
+                  {user.isAdmin && (
+                    <Link
+                      to="/admin"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    >
+                      <span>Admin Page</span>
+                    </Link>
+                  )}
                 </div>
               </div>
             )}

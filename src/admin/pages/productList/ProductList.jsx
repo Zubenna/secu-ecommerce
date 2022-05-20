@@ -1,19 +1,33 @@
 import './productList.css';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from '@material-ui/icons';
-import { productRows } from '../../dummyData';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getItems, deleteItem } from '../../../redux/apiCalls';
+import Navbar from '../../../components/Navbar';
+import Sidebar from '../../components/sidebar/Sidebar';
+import SearchBox from '../../../components/SearchBox';
+import Footer from '../../../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductList() {
-  const [data, setData] = useState(productRows);
+  const navigate = useNavigate();
+  const message = useSelector((state) => state.product.message);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.items);
+
+  useEffect(() => {
+    getItems(dispatch);
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    deleteItem(id, dispatch);
+    message === 'Product deleted successfully' && navigate('/admin');
+    console.log(message);
   };
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
     {
       field: 'product',
       headerName: 'Product',
@@ -21,36 +35,44 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
+            <img
+              className="productListImg"
+              src={params.row.image}
+              alt={params.row.name}
+            />
             {params.row.name}
           </div>
         );
       },
     },
-    { field: 'stock', headerName: 'Stock', width: 200 },
+    { field: 'countInStock', headerName: 'Stock', width: 120 },
     {
-      field: 'status',
-      headerName: 'Status',
-      width: 120,
+      field: 'category',
+      headerName: 'Category',
+      width: 160,
     },
+    { field: 'subCategory', headerName: 'Sub Category', width: 200 },
     {
       field: 'price',
       headerName: 'Price',
-      width: 160,
+      width: 120,
     },
     {
       field: 'action',
       headerName: 'Action',
-      width: 150,
+      width: 220,
       renderCell: (params) => {
         return (
           <>
-            <Link to={'/product/' + params.row.id}>
+            <Link to={'/product/' + params.row._id}>
+              <button className="productListView">View</button>
+            </Link>
+            <Link to={'/updateprod/' + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -59,14 +81,25 @@ export default function ProductList() {
   ];
 
   return (
-    <div className="productList">
-      <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-      />
+    <div>
+      <Navbar />
+      <div className="productBox">
+        <div className="sideGrid">
+          <Sidebar />
+        </div>
+        <div className="productGrid">
+          <DataGrid
+            rows={products}
+            disableSelectionOnClick
+            columns={columns}
+            getRowId={(row) => row._id}
+            pageSize={10}
+            checkboxSelection
+          />
+        </div>
+      </div>
+      <SearchBox />
+      <Footer />
     </div>
   );
 }

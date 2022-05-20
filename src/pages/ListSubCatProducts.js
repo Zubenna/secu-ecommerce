@@ -16,10 +16,9 @@ const ListSubCatProducts = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get(
-          `product/getProducts/subcatquery?subCategory=${cat}`
-        );
+        const res = await publicRequest.get(`product/getProducts`);
         setProducts(res.data);
+        console.log('here', res.data);
       } catch {}
     };
     getProduct();

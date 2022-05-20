@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import SearchBox from '../components/SearchBox';
@@ -6,6 +6,8 @@ import Style from '../styles/Cart.module.css';
 import imgOne from '../images/BestSellers/bestEight.webp';
 import imgTwo from '../images/BestSellers/bestEleven.webp';
 import { useDispatch } from 'react-redux';
+import { PaystackButton } from 'react-paystack';
+import { addOrder } from '../redux/apiCalls';
 import {
   addProduct,
   removeProduct,
@@ -18,8 +20,13 @@ import { useEffect } from 'react';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
+  const orderMessage = useSelector((state) => state.order.message);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const cartQuantity = useSelector((state) => state.cart.cartTotalQuantity);
+  const publicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
+  const amount = (cart.cartTotalAmount + 40 + 10) * 100;
   useEffect(() => {
     dispatch(getTotalPrice());
   }, [dispatch, cart]);
@@ -28,13 +35,38 @@ const Cart = () => {
     dispatch(removeProduct(item));
   };
 
-  const decreseProductQuant = (product) => {
+  const decreaseProductQuant = (product) => {
     dispatch(decreaseProduct(product));
   };
   const increaseProductQuant = (product) => {
     dispatch(addProduct(product));
   };
-  console.log('Total', cart.cartTotalAmount);
+  // console.log('Total', cart.cartTotalAmount);
+  // console.log('PayStackApi', publicKey);
+
+  const componentProps = {
+    email: currentUser.email,
+    amount,
+    metadata: {
+      name: currentUser.first_name,
+      phone: currentUser.phone_number,
+      address: currentUser.address,
+    },
+    publicKey,
+    text: 'CHECKOUT NOW',
+    onSuccess: () => {
+      const products = cart.products;
+      const userId = currentUser._id;
+      const address = currentUser.address;
+      const isPaid = true;
+      const userName = currentUser.first_name + ' ' + currentUser.last_name;
+      const orderInfo = { products, userId, amount, address, isPaid, userName };
+      addOrder(orderInfo, dispatch);
+      orderMessage === 'New Order Created' && navigate('/success');
+    },
+    // alert('Thanks for doing business with us! Come back soon!!'),
+    onClose: () => alert("Wait! You need this oil, don't go!!!!"),
+  };
   return (
     <div>
       <Navbar />
@@ -92,7 +124,7 @@ const Cart = () => {
                       <div className="flex items-center">
                         <Remove
                           className="cursor-pointer"
-                          onClick={() => decreseProductQuant(product)}
+                          onClick={() => decreaseProductQuant(product)}
                         />
                         <p className="text-3xl p-2">{product.itemQuantity}</p>
                         <Add
@@ -126,11 +158,19 @@ const Cart = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <h3 className="font-bold text-2xl p-2">Total:</h3>
-                  <span>${cart.cartTotalAmount + 40 + 10}</span>
+                  <span>{(cart.cartTotalAmount + 40 + 10).toFixed()}</span>
                 </div>
-                <button className="p-2 font-bold bg-black text-white text-xl">
+                {/* <button className="p-2 font-bold bg-black text-white text-xl">
                   CHECKOUT NOW
-                </button>
+                </button> */}
+                {currentUser ? (
+                  <PaystackButton
+                    className="p-2 font-bold bg-black text-white text-md"
+                    {...componentProps}
+                  />
+                ) : (
+                  navigate('/login')
+                )}
               </div>
             </div>
           </>

@@ -8,15 +8,33 @@ const orderSchema = new mongoose.Schema(
         productId: {
           type: String,
         },
-        quantity: {
+        itemQuantity: {
           type: Number,
-          default: 1,
+        },
+        name: {
+          type: String,
+        },
+        price: {
+          type: Number,
+        },
+        category: {
+          type: String,
+        },
+        brand: {
+          type: String,
+        },
+        modelNo: {
+          type: String,
+        },
+        skuNo: {
+          type: String,
         },
       },
     ],
+    userName: { type: String, required: true },
     amount: { type: Number, required: true },
-    address: { type: Object, required: true },
-    status: { type: String, default: 'pending' },
+    address: { type: String, required: true },
+    isPaid: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

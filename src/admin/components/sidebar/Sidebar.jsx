@@ -20,9 +20,9 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Dashboard</h3>
+          {/* <h3 className="sidebarTitle">Dashboard</h3> */}
           <ul className="sidebarList">
-            <Link to="/" className="link">
+            <Link to="/admin" className="link">
               <li className="sidebarListItem active">
                 <LineStyle className="sidebarIcon" />
                 Home
@@ -47,7 +47,7 @@ export default function Sidebar() {
                 Users
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="/prolist" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Products

@@ -2,7 +2,7 @@ import Style from '../styles/Login.module.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import SearchBox from '../components/SearchBox';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { login } from '../redux/apiCalls';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,10 +11,13 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isFetching, error } = useSelector((state) => state.user);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const handleLogin = (e) => {
     e.preventDefault();
     login(dispatch, { email, password });
+    currentUser && navigate('/');
   };
   return (
     <div>

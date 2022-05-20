@@ -50,14 +50,18 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //DELETE
-router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
-  try {
-    await User.findByIdAndDelete(req.params.id);
-    res.status(200).send('User has been deleted');
-  } catch (err) {
-    res.status(500).send('Error deleting user');
+router.delete(
+  '/deleteUser/:id',
+  verifyTokenAndAuthorization,
+  async (req, res) => {
+    try {
+      await User.findByIdAndDelete(req.params.id);
+      res.status(200).send('User has been deleted');
+    } catch (err) {
+      res.status(500).send('Error deleting user');
+    }
   }
-});
+);
 
 //GET USER
 router.get('/getUser/:id', verifyTokenAndAdmin, async (req, res) => {

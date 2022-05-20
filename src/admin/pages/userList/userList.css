@@ -1,5 +1,5 @@
 .userList {
-  flex: 4;
+  /* flex: 4; */
 }
 
 .userListUser {
@@ -28,4 +28,15 @@
 .userListDelete {
   color: red;
   cursor: pointer;
+}
+
+.userBox {
+  display: flex;
+}
+
+.sideBar {
+  flex: 1;
+}
+.userList {
+  flex: 4;
 }

@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   currentUser: null,
   isFetching: false,
+  users: [],
   error: false,
-  message: '',
+  // message: '',
 };
 
 const userSlice = createSlice({
@@ -46,6 +47,35 @@ const userSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    // GET ALL USERS
+    getUsersStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    getUsersSuccess: (state, action) => {
+      state.isFetching = false;
+      state.users = action.payload;
+    },
+    getUsersFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
+    // DELETE USER
+    deleteUserStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    deleteUserSuccess: (state, action) => {
+      state.isFetching = false;
+      state.users.splice(
+        state.users.findIndex((user) => user._id === action.payload),
+        1
+      );
+    },
+    deleteUserFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
@@ -59,5 +89,11 @@ export const {
   logoutStart,
   logoutSuccess,
   logoutFailure,
+  getUsersStart,
+  getUsersSuccess,
+  getUsersFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  deleteUserFailure,
 } = userSlice.actions;
 export default userSlice.reducer;

@@ -5,14 +5,20 @@ const {
   verifyTokenAndAdmin,
 } = require('../middleware/checkAuth');
 const router = require('express').Router();
-
-//CREATE
+// CREATE
 router.post('/createOrder', verifyToken, async (req, res) => {
-  const newOrder = new Order(req.body);
-
+  console.log('In creatng order');
+  const { products, address, amount, userId, userName, isPaid } = req.body;
   try {
-    const savedOrder = await newOrder.save();
-    res.status(200).json(savedOrder);
+    await Order.create({
+      products,
+      address,
+      amount,
+      userId,
+      userName,
+      isPaid,
+    });
+    res.status(201).send('New Order Created');
   } catch (err) {
     res.status(500).send('Error creating Order');
   }
@@ -58,8 +64,8 @@ router.get(
   }
 );
 
-//GET ALL
-router.get('/getAllOrders', verifyTokenAndAdmin, async (req, res) => {
+//GET ALL verifyTokenAndAdmin
+router.get('/getAllOrders', async (req, res) => {
   try {
     const orders = await Order.find();
     res.status(200).json(orders);

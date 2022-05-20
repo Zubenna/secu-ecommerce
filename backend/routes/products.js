@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Product = require('../models/Product');
 const { verifyTokenAndAdmin } = require('../middleware/checkAuth');
 
+// use later verifyTokenAndAdmin
 router.post('/createProduct', verifyTokenAndAdmin, async (req, res) => {
   const {
     name,
@@ -13,7 +14,23 @@ router.post('/createProduct', verifyTokenAndAdmin, async (req, res) => {
     brand,
     type,
     rating,
+    modelNo,
+    skuNo,
+    image,
   } = req.body;
+  // console.log('Inside Creating product');
+  // console.log(name);
+  // console.log(description);
+  // console.log(price);
+  // console.log(category);
+  // console.log(subCategory);
+  // console.log(countInStock);
+  // console.log(brand);
+  // console.log(type);
+  // console.log(rating);
+  // console.log(modelNo);
+  // console.log(skuNo);
+  // console.log(image);
   try {
     await Product.create({
       name,
@@ -25,16 +42,19 @@ router.post('/createProduct', verifyTokenAndAdmin, async (req, res) => {
       brand,
       type,
       rating,
+      modelNo,
+      skuNo,
+      image,
     });
-    res.status(200).send({
-      message: 'Product created successfully',
-    });
+
+    res.status(200).send('Product created successfully');
   } catch (error) {
     res.status(500).send(error);
   }
 });
 
 router.patch('/editProduct/:id', verifyTokenAndAdmin, async (req, res) => {
+  console.log(req.body);
   try {
     await Product.findByIdAndUpdate(
       req.params.id,
@@ -43,28 +63,25 @@ router.patch('/editProduct/:id', verifyTokenAndAdmin, async (req, res) => {
       },
       { new: true }
     );
-    res.status(200).send({
-      message: 'Product updated successfully',
-    });
+    res.status(200).send('Product updated successfully');
   } catch (error) {
     res.status(500).send('Error updating product');
   }
 });
 
 router.delete('/deleteProduct/:id', verifyTokenAndAdmin, async (req, res) => {
+  console.log('In delete');
   try {
     const prod = await Product.findByIdAndDelete(req.params.id);
     // const prod = await Product.deleteMany({});
 
     if (!prod) res.status(404).send('No Product found');
-    res.status(200).send({
-      message: 'Product deleted successfully',
-    });
+    res.status(200).send('Product deleted successfully');
   } catch (error) {
     res.status(500).send('Error deleting product');
   }
 });
-
+// verifyTokenAndAdmin
 router.get('/getProducts', async (req, res) => {
   const prod = await Product.find({});
   try {

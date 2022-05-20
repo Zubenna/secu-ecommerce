@@ -12,14 +12,21 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from 'firebase/storage';
-import './newProduct.css';
+import './updateproduct.css';
 import app from '../../../firebase';
-import { addItem } from '../../../redux/apiCalls';
+import { updateItem } from '../../../redux/apiCalls';
+import { useLocation } from 'react-router-dom';
 
-export default function NewProduct() {
-  const dispatch = useDispatch();
+export default function UpdateProduct() {
   const navigate = useNavigate();
   const message = useSelector((state) => state.product.message);
+
+  const location = useLocation();
+  const productId = location.pathname.split('/')[2];
+  const product = useSelector((state) =>
+    state.product.items.find((product) => product._id === productId)
+  );
+  const dispatch = useDispatch();
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
 
@@ -66,8 +73,8 @@ export default function NewProduct() {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const product = { ...inputs, image: downloadURL };
           console.log(product);
-          addItem(product, dispatch);
-          message === 'Product created successfully' && navigate('/prolist');
+          updateItem(productId, product, dispatch);
+          message === 'Product updated successfully' && navigate('/prolist');
         });
       }
     );
@@ -80,7 +87,7 @@ export default function NewProduct() {
           <Sidebar />
         </div>
         <div className="newProduct">
-          <h1 className="addProductTitle">New Product</h1>
+          <h1 className="addProductTitle">Update Product</h1>
           <form className="addProductForm">
             <div className="productFormMain">
               <div className="imgBox">
@@ -93,45 +100,33 @@ export default function NewProduct() {
                     onChange={(e) => setFile(e.target.files[0])}
                   />
                 }
-                {/* <div className="uploadBtn">
-                  <label htmlFor="file">
-                    <Publish />
-                  </label>
-                  <input
-                    type="file"
-                    name="image"
-                    id="file"
-                    onChange={(e) => setFile(e.target.files[0])}
-                    style={{ display: 'none' }}
-                  />
-                </div> */}
               </div>
               <label>Product Name</label>
               <input
                 type="text"
                 name="name"
-                placeholder="name"
+                placeholder={product.name}
                 onChange={handleChange}
               />
               <label>Product Description</label>
               <input
                 type="text"
                 name="description"
-                placeholder="description"
+                placeholder={product.description}
                 onChange={handleChange}
               />
               <label>Price</label>
               <input
                 type="number"
                 name="price"
-                placeholder="price"
+                placeholder={product.price}
                 onChange={handleChange}
               />
               <label>In Stock</label>
               <input
                 type="number"
                 name="countInStock"
-                placeholder="quantity"
+                placeholder={product.countInStock}
                 onChange={handleChange}
               />
               <label>Category</label>
@@ -139,53 +134,53 @@ export default function NewProduct() {
                 type="text"
                 name="category"
                 onChange={handleChange}
-                placeholder="category"
+                placeholder={product.category}
               />
               <label>Sub Category</label>
               <input
                 type="text"
                 name="subCategory"
-                placeholder="sub category"
+                placeholder={product.subCategory}
                 onChange={handleChange}
               />
               <label>Brand</label>
               <input
                 type="text"
                 name="brand"
-                placeholder="type"
+                placeholder={product.type}
                 onChange={handleChange}
               />
               <label>Model No</label>
               <input
                 type="text"
                 name="modelNo"
-                placeholder="model number"
+                placeholder={product.modelNo}
                 onChange={handleChange}
               />
               <label>SKU No</label>
               <input
                 type="text"
                 name="skuNo"
-                placeholder="sku number"
+                placeholder={product.skuNo}
                 onChange={handleChange}
               />
               <label>Type</label>
               <input
                 type="text"
                 name="type"
-                placeholder="product type"
+                placeholder={product.type}
                 onChange={handleChange}
               />
               <label>Rating</label>
               <input
                 type="number"
                 name="rating"
-                placeholder="rating"
+                placeholder={product.rating}
                 onChange={handleChange}
               />
             </div>
             <button onClick={handleClick} className="addProductButton">
-              Create
+              Update
             </button>
           </form>
         </div>

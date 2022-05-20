@@ -24,6 +24,7 @@ const productSchema = mongoose.Schema(
 
     subCategory: {
       type: String,
+      default: null,
     },
 
     countInStock: {
@@ -38,18 +39,18 @@ const productSchema = mongoose.Schema(
     },
     modelNo: {
       type: String,
+      default: null,
       required: true,
     },
     skuNo: {
       type: String,
+      default: null,
       required: true,
     },
 
     image: {
       type: String,
-      data: Buffer,
-      contentType: String,
-      // required: [true, 'Upload your picture please'],
+      required: [true, 'Upload your picture please'],
     },
 
     type: {
