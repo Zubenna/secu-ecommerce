@@ -15,6 +15,9 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+  updateUserFailure,
 } from './userRedux';
 import { publicRequest, userRequest } from '../apiCalls/productApi';
 import {
@@ -32,7 +35,14 @@ import {
   addItemFailure,
 } from './productRedux';
 
-import { addOrderStart, addOrderSuccess, addOrderFailure } from './orderRedux';
+import {
+  addOrderStart,
+  addOrderSuccess,
+  addOrderFailure,
+  getOrdersStart,
+  getOrdersSuccess,
+  getOrdersFailure,
+} from './orderRedux';
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -53,10 +63,10 @@ export const register = async (dispatch, user) => {
   }
 };
 
-export const logout = async (dispatch, user) => {
+export const logout = async (dispatch) => {
   dispatch(logoutStart());
   try {
-    const res = await publicRequest.post('auth/logoutUser', user);
+    const res = await publicRequest.get('auth/logoutUser');
     dispatch(logoutSuccess(res.data));
   } catch (err) {
     dispatch(logoutFailure());
@@ -135,4 +145,24 @@ export const addOrder = async (order, dispatch) => {
 
 export const resetAction = async (dispatch) => {
   dispatch(resetCart());
+};
+
+export const getOrders = async (dispatch) => {
+  dispatch(getOrdersStart());
+  try {
+    const res = await userRequest.get('order/getAllOrders');
+    dispatch(getOrdersSuccess(res.data));
+  } catch (err) {
+    dispatch(getOrdersFailure());
+  }
+};
+
+export const updateUser = async (id, user, dispatch) => {
+  dispatch(updateUserStart());
+  try {
+    const res = await userRequest.patch(`user/updateUser/${id}`, user);
+    dispatch(updateUserSuccess(res.data));
+  } catch (err) {
+    dispatch(updateUserFailure());
+  }
 };

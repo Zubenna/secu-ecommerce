@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Transition } from '@headlessui/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Badge } from '@material-ui/core';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import logo from '../images/secu-logo.png';
@@ -25,16 +25,26 @@ import SmartHome from './SmartHome';
 import Brands from './Brands';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTotalPrice } from '../redux/cartRedux';
+import { logout } from '../redux/apiCalls';
 
 const Navbar = () => {
-  const user = useSelector((state) => state.user.currentUser);
+  let user = useSelector((state) => state.user.currentUser);
+  const message = useSelector((state) => state.user.message);
   const [isOpen, setIsOpen] = useState(false);
   const cart = useSelector((state) => state.cart);
   const { cartTotalQuantity } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getTotalPrice());
   }, [dispatch, cart]);
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout(dispatch);
+    message === 'Logged out successfully' && navigate('/');
+    user = null;
+  };
   return (
     <nav>
       <div className={Style.menuBox}>
@@ -77,12 +87,18 @@ const Navbar = () => {
               <span className={Style.menuText}>Chat</span>
             </div>
           </a>
-          <Link to="/login">
-            <div className="flex items-center">
-              <UserIcon className={Style.iconSize} />
-              <span className={Style.menuText}>Login</span>
-            </div>
-          </Link>
+          {user !== null ? (
+            <span onClick={handleLogout} className={Style.menuText}>
+              Logout
+            </span>
+          ) : (
+            <Link to="/login">
+              <div className="flex items-center">
+                <UserIcon className={Style.iconSize} />
+                <span className={Style.menuText}>Login</span>
+              </div>
+            </Link>
+          )}
         </div>
         <Link to="/cart">
           <div className="flex items-center">
@@ -113,7 +129,7 @@ const Navbar = () => {
                     <SmartHome />
                     <Brands />
                     <div>
-                      {user.isAdmin ? (
+                      {user !== null && user.isAdmin ? (
                         <Link
                           to="/admin"
                           className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -121,7 +137,9 @@ const Navbar = () => {
                           <span className="text-lg font-bold">Admin Page</span>
                         </Link>
                       ) : (
-                        <span className="text-xs text-white">{user.email}</span>
+                        <span className="text-xs text-white">
+                          {user !== null && user.email}
+                        </span>
                       )}
                     </div>
                   </div>

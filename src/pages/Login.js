@@ -13,11 +13,11 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isFetching, error } = useSelector((state) => state.user);
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const message = useSelector((state) => state.user.message);
   const handleLogin = (e) => {
     e.preventDefault();
     login(dispatch, { email, password });
-    currentUser && navigate('/');
+    message === 'Logged in Successfully' && navigate('/');
   };
   return (
     <div>

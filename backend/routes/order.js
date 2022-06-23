@@ -68,7 +68,7 @@ router.get(
 router.get('/getAllOrders', async (req, res) => {
   try {
     const orders = await Order.find();
-    res.status(200).json(orders);
+    res.status(200).send(orders);
   } catch (err) {
     res.status(500).send('Error getting all Orders');
   }

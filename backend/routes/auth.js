@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
-const { verifyToken } = require('../middleware/checkAuth');
+const { verifyToken, verifyTokenAndAdmin } = require('../middleware/checkAuth');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const dotenv = require('dotenv');
@@ -8,7 +8,7 @@ dotenv.config();
 
 router.post('/createUser', async (req, res) => {
   // Get user details
-  console.log("Tracking Register Error")
+  console.log('Tracking Register Error');
   try {
     let {
       first_name,
@@ -21,14 +21,14 @@ router.post('/createUser', async (req, res) => {
       phone_number,
       isAdmin,
     } = req.body;
-   
+
     // Vallidate number of phone digits
     let myRegex = /^[0-9]{11}$/;
     if (!phone_number.match(myRegex)) {
       res.status(400).send({ msg: 'Phone number must be 11 digits only' });
       return;
     }
-    
+
     // Check required fields
     if (
       !(
@@ -44,21 +44,21 @@ router.post('/createUser', async (req, res) => {
       res.status(400).send({ msg: 'Required fields must not be empty' });
       return;
     }
-    
+
     // Check dupllicate email
     const existingEmail = await User.findOne({ email });
     if (existingEmail) {
       res.status(400).send({ msg: 'Email already exist' });
       return;
     }
-    
+
     // Check dupllicate username
     const existingUname = await User.findOne({ username });
     if (existingUname) {
       res.status(400).send({ msg: 'Username already exist' });
       return;
     }
-    
+
     // Check username length
     const nameLength = username.length;
     if (!(nameLength >= 6 && nameLength < 16)) {
@@ -67,7 +67,7 @@ router.post('/createUser', async (req, res) => {
         .send({ msg: 'Username must be in the range 8 - 15 characters' });
       return;
     }
-    
+
     // Check dupllicate phone number
     const existingNumber = await User.findOne({ phone_number });
     if (existingNumber) {
@@ -147,13 +147,13 @@ router.post('/loginUser', async (req, res) => {
   }
 });
 
-router.get('/logoutUser', verifyToken, (req, res) => {
+router.get('/logoutUser', (req, res) => {
   const authHeader = req.headers['authorization'];
   jwt.sign(authHeader, '', { expiresIn: 1 }, (logout, err) => {
     if (logout) {
-      res.send({ msg: 'Logged out successfully' });
+      res.send('Logged out successfully');
     } else {
-      res.send({ msg: 'Error logging out' });
+      res.send('Error logging out');
     }
   });
 });

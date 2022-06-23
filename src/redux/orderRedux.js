@@ -24,9 +24,29 @@ export const orderSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+
+    // GET ALL ORDERS
+    getOrdersStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    getOrdersSuccess: (state, action) => {
+      state.isFetching = false;
+      state.orders = action.payload;
+    },
+    getOrdersFailure: (state) => {
+      state.isFetching = false;
+      state.error = true;
+    },
   },
 });
 
-export const { addOrderStart, addOrderSuccess, addOrderFailure } =
-  orderSlice.actions;
+export const {
+  addOrderStart,
+  addOrderSuccess,
+  addOrderFailure,
+  getOrdersStart,
+  getOrdersSuccess,
+  getOrdersFailure,
+} = orderSlice.actions;
 export default orderSlice.reducer;

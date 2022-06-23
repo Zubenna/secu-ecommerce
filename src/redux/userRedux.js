@@ -5,7 +5,7 @@ const initialState = {
   isFetching: false,
   users: [],
   error: false,
-  // message: '',
+  message: '',
 };
 
 const userSlice = createSlice({
@@ -18,6 +18,7 @@ const userSlice = createSlice({
     loginSuccess: (state, action) => {
       state.isFetching = false;
       state.currentUser = action.payload;
+      state.message = 'Logged in Successfully';
       state.error = false;
     },
     loginFailure: (state) => {
@@ -39,9 +40,11 @@ const userSlice = createSlice({
     logoutStart: (state) => {
       state.isFetching = true;
     },
-    logoutSuccess: (state) => {
+    logoutSuccess: (state, action) => {
       state.isFetching = false;
-      // state.currentUser = action.payload;
+      state.message = action.payload;
+      state.currentUser = null;
+      // state.users = [];
     },
     logoutFailure: (state) => {
       state.isFetching = false;
@@ -76,6 +79,19 @@ const userSlice = createSlice({
       state.isFetching = false;
       state.error = true;
     },
+    // UPDATE USER
+    updateUserStart: (state) => {
+      state.isFetching = true;
+      state.error = false;
+    },
+    updateUserSuccess: (state, action) => {
+      state.isFetching = false;
+      state.message = action.payload;
+    },
+    updateUserFailure: (state, action) => {
+      state.isFetching = false;
+      state.error = action.payload;
+    },
   },
 });
 
@@ -95,5 +111,8 @@ export const {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+  updateUserFailure,
 } = userSlice.actions;
 export default userSlice.reducer;

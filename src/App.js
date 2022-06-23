@@ -7,12 +7,15 @@ import Register from './pages/Register';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import AdminHome from './admin/pages/home/Home';
+import OrderList from './admin/pages/orderList/OrderList';
 import AdminProduct from './admin/pages/product/Product';
 import UpdateProduct from './admin/pages/updateProduct/UpdateProduct';
 import Users from './admin/pages/userList/UserList';
 import AdminProList from './admin/pages/productList/ProductList';
 import NewProduct from './admin/pages/newProduct/NewProduct';
 import OrderSuccess from './pages/OrderSuccess';
+import ProDetail from './admin/pages/productDetails/ProductDetails';
+import UpdateUser from './admin/pages/updateUser/UpdateUser';
 const App = () => {
   return (
     <BrowserRouter>
@@ -28,6 +31,9 @@ const App = () => {
         <Route path="updateprod/:proId" element={<UpdateProduct />} />
         <Route path="newproduct" element={<NewProduct />} />
         <Route path="success" element={<OrderSuccess />} />
+        <Route path="listorders" element={<OrderList />} />
+        <Route path="prodetail/:orderId" element={<ProDetail />} />
+        <Route path="updateuser/:userId" element={<UpdateUser />} />
         {/* <Route path=":proId" element={<AdminProduct />} /> */}
 
         <Route path="listsubproducts">
