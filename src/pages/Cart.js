@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 import SearchBox from '../components/SearchBox';
 import Style from '../styles/Cart.module.css';
 import imgOne from '../images/BestSellers/bestEight.webp';
-import imgTwo from '../images/BestSellers/bestEleven.webp';
 import { useDispatch } from 'react-redux';
 import { PaystackButton } from 'react-paystack';
 import { addOrder } from '../redux/apiCalls';
