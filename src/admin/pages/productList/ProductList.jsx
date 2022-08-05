@@ -88,6 +88,11 @@ export default function ProductList() {
           <Sidebar />
         </div>
         <div className="productGrid">
+          <div className="centerNewProduct">
+            <Link to="/NewProduct">
+              <button className="setNewProduct">New Product</button>
+            </Link>
+          </div>
           <DataGrid
             rows={products}
             disableSelectionOnClick

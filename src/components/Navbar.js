@@ -6,6 +6,7 @@ import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import logo from '../images/secu-logo.png';
 import Style from '../styles/Navbar.module.css';
 import CameraSystems from './CameraSystems';
+import SecurityCameras from './SecurityCameras';
 import Recorders from './Recorders';
 import {
   SearchIcon,
@@ -62,6 +63,21 @@ const Navbar = () => {
             <SearchIcon className="w-6 h-6 text-slate-50" />
           </button>
         </div>
+        <div className={Style.setAdmin}>
+          {user !== null && user.isAdmin ? (
+            <Link
+              to="/admin"
+              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+            >
+              <span className="text-sm font-bold">Admin Page</span>
+            </Link>
+          ) : (
+            <span className="text-xs text-dark">
+              {user !== null && user.email}
+            </span>
+          )}
+        </div>
+
         <div className={Style.menuHolder}>
           <a href="#">
             <div className="flex items-center">
@@ -120,6 +136,7 @@ const Navbar = () => {
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     <CameraSystems />
+                    <SecurityCameras />
                     <Recorders />
                     <AudioVideo />
                     <Networking />
@@ -128,20 +145,6 @@ const Navbar = () => {
                     <Accessories />
                     <SmartHome />
                     <Brands />
-                    <div>
-                      {user !== null && user.isAdmin ? (
-                        <Link
-                          to="/admin"
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        >
-                          <span className="text-lg font-bold">Admin Page</span>
-                        </Link>
-                      ) : (
-                        <span className="text-xs text-white">
-                          {user !== null && user.email}
-                        </span>
-                      )}
-                    </div>
                   </div>
                 </div>
               </div>
@@ -209,6 +212,12 @@ const Navbar = () => {
                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                   >
                     <CameraSystems />
+                  </a>
+                  <a
+                    href="#"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    <SecurityCameras />
                   </a>
 
                   <a

@@ -11,13 +11,15 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const nav = useNavigate();
   const { isFetching, error } = useSelector((state) => state.user);
   const message = useSelector((state) => state.user.message);
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    login(dispatch, { email, password });
-    message === 'Logged in Successfully' && navigate('/');
+    try {
+      await login(dispatch, { email, password });
+      message === 'Logged in Successfully' && nav('/');
+    } catch (e) {}
   };
   return (
     <div>

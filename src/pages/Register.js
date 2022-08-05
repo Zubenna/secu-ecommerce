@@ -29,6 +29,14 @@ const Register = () => {
       password,
       confirm_password,
     });
+    // console.log(first_name);
+    // console.log(last_name);
+    // console.log(username);
+    // console.log(address);
+    // console.log(phone_number);
+    // console.log(email);
+    // console.log(password);
+    // console.log(confirm_password);
   };
   return (
     <div>

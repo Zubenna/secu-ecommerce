@@ -46,6 +46,7 @@ import {
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
+  // console.log('Create user apicalls', user);
   try {
     const res = await publicRequest.post('auth/loginUser', user);
     dispatch(loginSuccess(res.data));
@@ -57,6 +58,7 @@ export const register = async (dispatch, user) => {
   dispatch(registerStart());
   try {
     const res = await publicRequest.post('auth/createUser', user);
+    console.log('Create user', user);
     dispatch(registerSuccess(res.data));
   } catch (err) {
     dispatch(registerFailure());

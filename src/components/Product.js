@@ -1,4 +1,4 @@
-import testOne from '../images/BestSellers/bestEight.webp';
+// import testOne from '../images/BestSellers/bestEight.webp';
 import Style from '../styles/Product.module.css';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -15,17 +15,19 @@ const Product = (props) => {
   return (
     <div className={Style.productBox}>
       <Link to={`/listsubproducts/${uniqueKey}`} state={prod}>
-        <img src={testOne} alt="" />
+        <img src={prod.image} alt="" />
         <p className="px-2 text-center line-clamp-2">{prod.description}</p>
         <p className="py-2 text-center font-bold text-lg">${prod.price}</p>
         <p className="font-bold text-center">{prod.rating}</p>
       </Link>
-      <button
-        onClick={handleClick}
-        className="py-2 px-8 rounded text-center font-bold bg-green-700 text-white"
-      >
-        Add to Cart
-      </button>
+      <div className="flex justify-center">
+        <button
+          onClick={handleClick}
+          className="py-2 px-8 rounded text-center font-bold bg-green-700 text-white"
+        >
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };

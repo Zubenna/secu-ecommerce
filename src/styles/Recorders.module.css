@@ -1,16 +1,16 @@
 .recordbox {
+  padding: 2em;
   width: 90%;
   margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 1em;
 }
 
 .recordersitem {
-  width: 14em;
-  height: 13.5em;
+  width: 13em;
+  height: 13em;
   border: 1px solid rgb(204, 190, 190);
-  margin-top: 1.5em;
 }
 
 .recordimg {
@@ -21,7 +21,7 @@
 }
 
 .textbox {
-  height: 4em;
+  height: 4.5em;
   margin: auto;
   width: 10em;
   display: flex;

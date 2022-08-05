@@ -52,9 +52,9 @@
 }
 
 .menuHolder {
-  margin-left: 7em;
+  margin-left: 4em;
   display: flex;
-  width: 35%;
+  width: 30%;
   justify-content: space-between;
 }
 
@@ -70,8 +70,14 @@
 }
 
 .iconBasket {
-  margin-left: 1.4em;
+  padding-left: 1em;
   width: 1.5em;
   height: 1.5em;
   color: rgba(5, 5, 149, 0.911);
+}
+
+.setAdmin {
+  width: 7em;
+  text-align: center;
+  padding-left: 0.6em;
 }

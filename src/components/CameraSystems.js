@@ -34,7 +34,7 @@ const CameraSystems = () => {
         }}
       >
         <div className={Style.boxone}>
-          <Link to="/listsubproducts" state="2 Camera Systems">
+          <Link to="/listsubproducts" state="Camera Systems">
             <div className="w-52 h-64 border-solid border-2 border-slate-300">
               <img src={secuOne} alt="Camera Systems" className="w-52 h-32" />
               <div className="font-extrabold w-46 px-3 text-center flex items-center h-32 test-dark">
@@ -42,42 +42,54 @@ const CameraSystems = () => {
               </div>
             </div>
           </Link>
-          <a href="">
+          <Link to="/listsubproducts" state="2 Camera Systems">
             <div className="w-52 h-64 border-solid border-2 border-slate-300">
-              <img src={secutwo} className="w-52 h-32" />
+              <img src={secutwo} alt="2 Camera Systems" className="w-52 h-32" />
               <div className={Style.numbox}>2</div>
               <div className="font-extrabold w-46 pl-8 text-center flex items-center h-14 test-dark">
                 CAMERA SYSTEMS
               </div>
             </div>
-          </a>
-          <a href="">
+          </Link>
+          <Link to="/listsubproducts" state="4 Camera Systems">
             <div className="w-52 h-64 border-solid border-2 border-slate-300">
-              <img src={secuthree} className="w-52 h-32" />
+              <img
+                src={secuthree}
+                alt="4 Camera Systems"
+                className="w-52 h-32"
+              />
               <div className={Style.numbox}>4</div>
               <div className="font-extrabold w-46 pl-8 text-center flex items-center h-14 test-dark">
                 CAMERA SYSTEMS
               </div>
             </div>
-          </a>
-          <a href="">
+          </Link>
+          <Link to="/listsubproducts" state="8 Camera Systems">
             <div className="w-52 h-64 border-solid border-2 border-slate-300">
-              <img src={secufour} className="w-52 h-32" />
+              <img
+                src={secufour}
+                alt="8 Camera Systems"
+                className="w-52 h-32"
+              />
               <div className={Style.numbox}>8</div>
               <div className="font-extrabold w-46 pl-8 text-center flex items-center h-14 test-dark">
                 CAMERA SYSTEMS
               </div>
             </div>
-          </a>
-          <a href="">
+          </Link>
+          <Link to="/listsubproducts" state="16 Camera Systems">
             <div className="w-52 h-64 border-solid border-2 border-slate-300">
-              <img src={secufive} className="w-52 h-32" />
+              <img
+                src={secufive}
+                alt="16 Camera Systems"
+                className="w-52 h-32"
+              />
               <div className={Style.numbox}>16</div>
               <div className="font-extrabold w-46 pl-8 text-center flex items-center h-14 test-dark">
                 CAMERA SYSTEMS
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
