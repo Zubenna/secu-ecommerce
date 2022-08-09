@@ -33,10 +33,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run build:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
-    "test": "react-scripts test",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build",
     "lint": "eslint --fix --ext .js,.jsx .",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
   },
