@@ -31,15 +31,16 @@
     "redux-persist": "^6.0.0",
     "serve": "^14.0.1",
     "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "autoprefixer": "^10.4.2",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.23"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "npm run build:css && react-scripts start",
+    "build": "npm run build:css && react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build",
     "lint": "eslint --fix --ext .js,.jsx .",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
   },
@@ -67,11 +68,8 @@
   "devDependencies": {
     "@redux-devtools/core": "^3.12.0",
     "@tailwindcss/line-clamp": "^0.3.1",
-    "autoprefixer": "^10.4.2",
     "eslint-config-airbnb": "^18.2.1",
-    "postcss-cli": "^9.1.0",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.4.2",
-    "tailwindcss": "^3.0.23"
+    "postcss-preset-env": "^7.4.2"
   }
 }
