@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Transition } from '@headlessui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Badge } from '@material-ui/core';
-import { Search, ShoppingCartOutlined } from '@material-ui/icons';
-import logo from '../images/secu-logo.png';
+import { ShoppingCartOutlined } from '@material-ui/icons';
+import logo from '../images/homandoff.jpeg';
 import Style from '../styles/Navbar.module.css';
 import CameraSystems from './CameraSystems';
 import SecurityCameras from './SecurityCameras';
@@ -51,7 +51,7 @@ const Navbar = () => {
       <div className={Style.menuBox}>
         <div className={Style.logoBox}>
           <div className={Style.imgBox}>
-            <img src={logo} className="w-12 h-12" alt="" />
+            <img src={logo} className="w-10 h-10 p-2" alt="" />
           </div>
           <Link to="/" className={Style.brandName}>
             Homandoff

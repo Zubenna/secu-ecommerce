@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import SearchBox from '../components/SearchBox';
 import Style from '../styles/Cart.module.css';
-import imgOne from '../images/BestSellers/bestEight.webp';
+// import imgOne from '../images/BestSellers/bestEight.webp';
 import { useDispatch } from 'react-redux';
 import { PaystackButton } from 'react-paystack';
 import { addOrder } from '../redux/apiCalls';
@@ -100,7 +100,7 @@ const Cart = () => {
                 {cart.products.map((product) => (
                   <div key={product._id} className={Style.proDetail}>
                     <div className={Style.imgBox}>
-                      <img src={imgOne} alt="" />
+                      <img src={product.image} alt="" />
                     </div>
                     <div className={Style.infoBox}>
                       <h2 className="pl-2 font-bold">{product.name}</h2>
