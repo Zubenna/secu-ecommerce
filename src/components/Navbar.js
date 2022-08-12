@@ -45,7 +45,17 @@ const Navbar = () => {
     e.preventDefault();
     logout(dispatch);
     message === 'Logged out successfully' && navigate('/');
-    user = null;
+    // user = null;
+  };
+
+  const handleCart = (e) => {
+    if (cartTotalQuantity > 0 && user !== null) {
+      navigate('/cart');
+    }
+    if (user === null) {
+      // navigate('/');
+      alert('Please sign in before checking out');
+    }
   };
   return (
     <nav>
@@ -118,17 +128,17 @@ const Navbar = () => {
           )}
         </div>
 
-        <Link to="/cart">
-          <div className="flex items-center">
-            <Badge
-              badgeContent={cartTotalQuantity}
-              color="primary"
-              className={Style.iconBasket}
-            >
-              <ShoppingCartOutlined />
-            </Badge>
-          </div>
-        </Link>
+        {/* <Link to="/cart"> */}
+        <div onClick={handleCart} className="flex cursor-pointer items-center">
+          <Badge
+            badgeContent={cartTotalQuantity}
+            color="primary"
+            className={Style.iconBasket}
+          >
+            <ShoppingCartOutlined />
+          </Badge>
+        </div>
+        {/* </Link> */}
       </div>
       <div className="w-full">
         <nav className="bg-blue-900">
