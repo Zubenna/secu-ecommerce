@@ -14,6 +14,7 @@ import Users from './admin/pages/userList/UserList';
 import AdminProList from './admin/pages/productList/ProductList';
 import NewProduct from './admin/pages/newProduct/NewProduct';
 import OrderSuccess from './pages/OrderSuccess';
+import RegisterSuccess from './pages/RegisterSuccess';
 import ProDetail from './admin/pages/productDetails/ProductDetails';
 import UpdateUser from './admin/pages/updateUser/UpdateUser';
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="updateprod/:proId" element={<UpdateProduct />} />
         <Route path="newproduct" element={<NewProduct />} />
         <Route path="success" element={<OrderSuccess />} />
+        <Route path="registerSuccess" element={<RegisterSuccess />} />
         <Route path="listorders" element={<OrderList />} />
         <Route path="prodetail/:orderId" element={<ProDetail />} />
         <Route path="updateuser/:userId" element={<UpdateUser />} />

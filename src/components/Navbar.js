@@ -30,9 +30,10 @@ import { logout } from '../redux/apiCalls';
 
 const Navbar = () => {
   let user = useSelector((state) => state.user.currentUser);
+  // console.log('user in Navbar is', user);
   const message = useSelector((state) => state.user.message);
   const [isOpen, setIsOpen] = useState(false);
-  const cart = useSelector((state) => state.cart);
+  let cart = useSelector((state) => state.cart);
   const { cartTotalQuantity } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -116,6 +117,7 @@ const Navbar = () => {
             </Link>
           )}
         </div>
+
         <Link to="/cart">
           <div className="flex items-center">
             <Badge

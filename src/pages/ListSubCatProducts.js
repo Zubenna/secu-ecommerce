@@ -12,8 +12,8 @@ const ListSubCatProducts = () => {
   const [products, setProducts] = useState([]);
   const location = useLocation();
   const cat = location.state;
-  console.log(cat);
-  console.log('Products', products);
+  // console.log(cat);
+  // console.log('Products', products);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -22,7 +22,7 @@ const ListSubCatProducts = () => {
           `product/getProducts/subcatquery?subCategory=${cat}`
         );
         setProducts(res.data);
-        console.log('here', res.data);
+        // console.log('here', res.data);
       } catch {}
     };
     getProduct();

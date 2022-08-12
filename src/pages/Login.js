@@ -13,14 +13,14 @@ const Login = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isFetching, error } = useSelector((state) => state.user);
-  const message = useSelector((state) => state.user.message);
-  const handleLogin = async (e) => {
+  // const feedBack = useSelector((state) => state.user.currentUser);
+
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      await login(dispatch, { email, password });
-      message === 'Logged in Successfully' && nav('/');
-    } catch (e) {}
+    login(dispatch, { email, password });
+    nav('/');
   };
+
   return (
     <div>
       <Navbar />

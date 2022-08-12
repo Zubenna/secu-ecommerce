@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import SearchBox from '../components/SearchBox';
 import Style from '../styles/Register.module.css';
 import { useState } from 'react';
 import { register } from '../redux/apiCalls';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const message = useSelector((state) => state.user.message.msg);
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -29,14 +32,14 @@ const Register = () => {
       password,
       confirm_password,
     });
-    // console.log(first_name);
-    // console.log(last_name);
-    // console.log(username);
-    // console.log(address);
-    // console.log(phone_number);
-    // console.log(email);
-    // console.log(password);
-    // console.log(confirm_password);
+    console.log('The register message', message);
+    if (message === 'Account created successfully') {
+      registerSucess();
+    }
+   
+  };
+  const registerSucess = () => {
+    navigate('/registerSuccess');
   };
   return (
     <div>

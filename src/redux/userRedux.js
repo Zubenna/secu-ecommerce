@@ -18,7 +18,6 @@ const userSlice = createSlice({
     loginSuccess: (state, action) => {
       state.isFetching = false;
       state.currentUser = action.payload;
-      state.message = 'Logged in Successfully';
       state.error = false;
     },
     loginFailure: (state) => {
@@ -31,7 +30,7 @@ const userSlice = createSlice({
     },
     registerSuccess: (state, action) => {
       state.isFetching = false;
-      state.currentUser = action.payload;
+      state.message = action.payload;
     },
     registerFailure: (state) => {
       state.isFetching = false;
@@ -42,7 +41,7 @@ const userSlice = createSlice({
     },
     logoutSuccess: (state, action) => {
       state.isFetching = false;
-      state.message = action.payload;
+      // state.feedBack = action.payload;
       state.currentUser = null;
       // state.users = [];
     },

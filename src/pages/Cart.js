@@ -30,6 +30,14 @@ const Cart = () => {
     dispatch(getTotalPrice());
   }, [dispatch, cart]);
 
+  const orderSucess = () => {
+    navigate('/success');
+  };
+
+  const userLogin = () => {
+    navigate('/');
+  };
+
   const removeItemFromCart = (item) => {
     dispatch(removeProduct(item));
   };
@@ -61,7 +69,11 @@ const Cart = () => {
       const userName = currentUser.first_name + ' ' + currentUser.last_name;
       const orderInfo = { products, userId, amount, address, isPaid, userName };
       addOrder(orderInfo, dispatch);
-      orderMessage === 'New Order Created' && navigate('/success');
+      if (orderMessage === 'New Order Created' && currentUser.email !== null) {
+        orderSucess();
+      } else {
+        userLogin();
+      }
     },
     // alert('Thanks for doing business with us! Come back soon!!'),
     onClose: () => alert("Wait! You need this oil, don't go!!!!"),

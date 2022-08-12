@@ -1,8 +1,8 @@
 import React from 'react';
 import Style from '../styles/Footer.module.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { BsChatFill, BsGearFill } from 'react-icons/bs';
-import logo from '../images/secu-logo.png';
+import logo from '../images/homandoff.jpeg';
 import { FiYoutube, FiFacebook, FiLinkedin } from 'react-icons/fi';
 // import FiLinkedin} from "react-icons/ri";
 
