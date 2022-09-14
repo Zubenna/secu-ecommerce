@@ -21,7 +21,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
-  const orderMessage = useSelector((state) => state.order.message);
+  const orderMessage = useSelector((state) => state.order.message.msg);
   const currentUser = useSelector((state) => state.user.currentUser);
   const cartQuantity = useSelector((state) => state.cart.cartTotalQuantity);
   const publicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
@@ -52,24 +52,28 @@ const Cart = () => {
   // console.log('PayStackApi', publicKey);
 
   const componentProps = {
-    email: currentUser.email,
+    email: currentUser.result.email,
     amount,
     metadata: {
-      name: currentUser.first_name,
-      phone: currentUser.phone_number,
-      address: currentUser.address,
+      name: currentUser.result.first_name,
+      phone: currentUser.result.phone_number,
+      address: currentUser.result.address,
     },
     publicKey,
     text: 'CHECKOUT NOW',
     onSuccess: () => {
       const products = cart.products;
-      const userId = currentUser._id;
-      const address = currentUser.address;
+      const userId = currentUser.result.id;
+      const address = currentUser.result.address;
       const isPaid = true;
-      const userName = currentUser.first_name + ' ' + currentUser.last_name;
+      const userName =
+        currentUser.result.first_name + ' ' + currentUser.last_name;
       const orderInfo = { products, userId, amount, address, isPaid, userName };
       addOrder(orderInfo, dispatch);
-      if (orderMessage === 'New Order Created' && currentUser.email !== null) {
+      if (
+        orderMessage === 'New Order Created' &&
+        currentUser.result.email !== null
+      ) {
         orderSucess();
       } else {
         userLogin();

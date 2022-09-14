@@ -1,14 +1,15 @@
 import './widgetSm.css';
 import { Visibility } from '@material-ui/icons';
 import { useState, useEffect } from 'react';
-import { userRequest } from '../../../apiCalls/productApi';
+import axios from 'axios';
+// import { userRequest } from '../../../apiCalls/productApi';
 
 export default function WidgetSm() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const res = await userRequest.get('user/getAllUsers');
+        const res = await axios.get('users/getAll');
         setUsers(res.data);
       } catch {}
     };

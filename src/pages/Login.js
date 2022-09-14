@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // const [navigate, setNavigate] = useState(false);
   const dispatch = useDispatch();
   const nav = useNavigate();
   const { isFetching, error } = useSelector((state) => state.user);
@@ -19,7 +20,15 @@ const Login = () => {
     e.preventDefault();
     login(dispatch, { email, password });
     nav('/');
+    // setNavigate(true);
+    // if (navigate) {
+    //   return nav('/');
+    // }
   };
+
+  // if (navigate) {
+  //   return nav('/');
+  // }
 
   return (
     <div>

@@ -75,7 +75,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className={Style.setAdmin}>
-          {user !== null && user.isAdmin ? (
+          {user !== null && user.result.isAdmin ? (
             <Link
               to="/admin"
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
@@ -84,7 +84,7 @@ const Navbar = () => {
             </Link>
           ) : (
             <span className="text-xs text-dark">
-              {user !== null && user.email}
+              {user !== null && user.result.email}
             </span>
           )}
         </div>

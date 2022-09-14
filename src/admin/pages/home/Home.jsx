@@ -1,7 +1,7 @@
 import Chart from '../../components/chart/Chart';
-import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo';
+// import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo';
 import './home.css';
-import { userData } from '../../dummyData';
+// import { userData } from '../../dummyData';
 import WidgetSm from '../../components/widgetSm/WidgetSm';
 import WidgetLg from '../../components/widgetLg/WidgetLg';
 import Navbar from '../../../components/Navbar';
@@ -10,7 +10,8 @@ import Footer from '../../../components/Footer';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Topbar from '../../components/topbar/Topbar';
 import { useEffect, useMemo, useState } from 'react';
-import { userRequest } from '../../../apiCalls/productApi';
+import axios from 'axios';
+// import { userRequest } from '../../../apiCalls/productApi';
 
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
@@ -34,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await userRequest.get('user/getStats');
+        const res = await axios.get('users/getStats');
         res.data.map((item) =>
           setUserStats((prev) => [
             ...prev,

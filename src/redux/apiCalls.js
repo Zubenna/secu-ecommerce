@@ -1,4 +1,5 @@
 import { resetCart } from './cartRedux';
+import axios from 'axios';
 import {
   loginFailure,
   loginStart,
@@ -19,7 +20,7 @@ import {
   updateUserSuccess,
   updateUserFailure,
 } from './userRedux';
-import { publicRequest, userRequest } from '../apiCalls/productApi';
+// import { publicRequest, userRequest } from '../apiCalls/productApi';
 import {
   getItemsFailure,
   getItemsStart,
@@ -43,12 +44,17 @@ import {
   getOrdersSuccess,
   getOrdersFailure,
 } from './orderRedux';
+// import { resolvePath } from 'react-router-dom';
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
-  // console.log('Create user apicalls', user);
   try {
-    const res = await publicRequest.post('auth/loginUser', user);
+    const res = await axios.post('auth/login', user, {
+      withCredentials: true,
+    });
+    const token = res.data.accessToken;
+    // console.log('login token', res.data.accessToken);
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     dispatch(loginSuccess(res.data));
   } catch (err) {
     dispatch(loginFailure());
@@ -57,7 +63,7 @@ export const login = async (dispatch, user) => {
 export const register = async (dispatch, user) => {
   dispatch(registerStart());
   try {
-    const res = await publicRequest.post('auth/createUser', user);
+    const res = await axios.post('users/createUser', user);
     console.log('Create user', user);
     dispatch(registerSuccess(res.data));
   } catch (err) {
@@ -68,7 +74,7 @@ export const register = async (dispatch, user) => {
 export const logout = async (dispatch) => {
   dispatch(logoutStart());
   try {
-    const res = await publicRequest.get('auth/logoutUser');
+    const res = await axios.post('auth/logout');
     dispatch(logoutSuccess(res.data));
   } catch (err) {
     dispatch(logoutFailure());
@@ -78,7 +84,7 @@ export const logout = async (dispatch) => {
 export const getItems = async (dispatch) => {
   dispatch(getItemsStart());
   try {
-    const res = await publicRequest.get('product/getProducts');
+    const res = await axios.get('products/getAll');
     dispatch(getItemsSuccess(res.data));
   } catch (err) {
     dispatch(getItemsFailure());
@@ -88,7 +94,7 @@ export const getItems = async (dispatch) => {
 export const deleteItem = async (id, dispatch) => {
   dispatch(deleteItemsStart());
   try {
-    const res = await userRequest.delete(`product/deleteProduct/${id}`);
+    const res = await axios.delete(`products/deleteProduct/${id}`);
     dispatch(deleteItemsSuccess(res.data));
   } catch (err) {
     dispatch(deleteItemsFailure());
@@ -98,7 +104,7 @@ export const deleteItem = async (id, dispatch) => {
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
   try {
-    const res = await publicRequest.get('user/getAllUsers');
+    const res = await axios.get('users/getAll');
     dispatch(getUsersSuccess(res.data));
   } catch (err) {
     dispatch(getUsersFailure());
@@ -108,7 +114,7 @@ export const getUsers = async (dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
-    await userRequest.delete(`user/deleteUser/${id}`);
+    await axios.delete(`users/deleteUser/${id}`);
     dispatch(deleteUserSuccess(id));
   } catch (err) {
     dispatch(deleteUserFailure());
@@ -118,7 +124,7 @@ export const deleteUser = async (id, dispatch) => {
 export const updateItem = async (id, product, dispatch) => {
   dispatch(updateItemStart());
   try {
-    const res = await userRequest.patch(`product/editProduct/${id}`, product);
+    const res = await axios.patch(`products/updateProduct/${id}`, product);
     dispatch(updateItemSuccess(res.data));
   } catch (err) {
     dispatch(updateItemFailure());
@@ -128,7 +134,7 @@ export const updateItem = async (id, product, dispatch) => {
 export const addItem = async (product, dispatch) => {
   dispatch(addItemStart());
   try {
-    const res = await userRequest.post(`product/createProduct`, product);
+    const res = await axios.post(`products/createProduct`, product);
     dispatch(addItemSuccess(res.data));
   } catch (err) {
     dispatch(addItemFailure());
@@ -138,7 +144,7 @@ export const addItem = async (product, dispatch) => {
 export const addOrder = async (order, dispatch) => {
   dispatch(addOrderStart());
   try {
-    const res = await userRequest.post(`order/createOrder`, order);
+    const res = await axios.post(`order/createOrder`, order);
     dispatch(addOrderSuccess(res.data));
   } catch (err) {
     dispatch(addOrderFailure());
@@ -152,7 +158,7 @@ export const resetAction = async (dispatch) => {
 export const getOrders = async (dispatch) => {
   dispatch(getOrdersStart());
   try {
-    const res = await userRequest.get('order/getAllOrders');
+    const res = await axios.get('order/getAll');
     dispatch(getOrdersSuccess(res.data));
   } catch (err) {
     dispatch(getOrdersFailure());
@@ -162,7 +168,7 @@ export const getOrders = async (dispatch) => {
 export const updateUser = async (id, user, dispatch) => {
   dispatch(updateUserStart());
   try {
-    const res = await userRequest.patch(`user/updateUser/${id}`, user);
+    const res = await axios.patch(`users/updateUser/${id}`, user);
     dispatch(updateUserSuccess(res.data));
   } catch (err) {
     dispatch(updateUserFailure());

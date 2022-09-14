@@ -10,8 +10,8 @@ import Sidebar from '../../components/sidebar/Sidebar';
 
 const UpdateUser = () => {
   const navigate = useNavigate();
-  const message = useSelector((state) => state.user.message);
-  console.log('Front', message);
+  const message = useSelector((state) => state.user.message.msg);
+  // console.log('Front', message);
   const location = useLocation();
   const userId = location.pathname.split('/')[2];
   const user = useSelector((state) =>
@@ -29,7 +29,7 @@ const UpdateUser = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     updateUser(userId, inputs, dispatch);
-    message === 'User updated successfully' && navigate('/users');
+    message === 'User updated successfully' && navigate('/admin');
   };
   return (
     <div>

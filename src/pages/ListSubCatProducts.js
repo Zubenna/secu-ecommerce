@@ -5,7 +5,8 @@ import SearchBox from '../components/SearchBox';
 import Style from '../styles/ListSubCatProduct.module.css';
 import Footer from '../components/Footer';
 import { useLocation } from 'react-router';
-import { publicRequest } from '../apiCalls/productApi';
+import axios from 'axios';
+// import { publicRequest } from '../apiCalls/productApi';
 import Product from '../components/Product';
 
 const ListSubCatProducts = () => {
@@ -18,8 +19,8 @@ const ListSubCatProducts = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get(
-          `product/getProducts/subcatquery?subCategory=${cat}`
+        const res = await axios.get(
+          `products/getByCat?category=${cat}`
         );
         setProducts(res.data);
         // console.log('here', res.data);

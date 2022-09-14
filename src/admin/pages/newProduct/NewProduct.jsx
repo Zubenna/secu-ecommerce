@@ -19,7 +19,7 @@ import { addItem } from '../../../redux/apiCalls';
 export default function NewProduct() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const message = useSelector((state) => state.product.message);
+  const message = useSelector((state) => state.product.message.msg);
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { userRequest } from '../../../apiCalls/productApi';
+// import { userRequest } from '../../../apiCalls/productApi';
+import axios from 'axios';
 import './widgetLg.css';
 // import { format } from 'timeago.js';
 
@@ -9,7 +10,7 @@ export default function WidgetLg() {
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const res = await userRequest.get('order/getAllOrders');
+        const res = await axios.get('order/getAll');
         setOrders(res.data);
       } catch {}
     };
