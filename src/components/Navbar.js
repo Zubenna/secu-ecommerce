@@ -30,7 +30,7 @@ import { logout } from '../redux/apiCalls';
 
 const Navbar = () => {
   let user = useSelector((state) => state.user.currentUser);
-  // console.log('user in Navbar is', user);
+  console.log('user in Navbar is', user);
   const message = useSelector((state) => state.user.message);
   const [isOpen, setIsOpen] = useState(false);
   let cart = useSelector((state) => state.cart);
