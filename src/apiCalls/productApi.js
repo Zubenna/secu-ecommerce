@@ -1,11 +1,13 @@
 import axios from 'axios';
-// const BASE_URL = 'http://localhost:6050/';
-const BASE_URL = 'https://homandoff-api.herokuapp.com/';
+// import { useDispatch } from 'react-redux';
+// import { logout } from '../redux/apiCalls';
+const BASE_URL = 'http://localhost:6050/';
+
+// const BASE_URL = 'https://homandoff-api.herokuapp.com/';
 
 // const TOKEN = JSON.parse(JSON.parse(localStorage.getItem('persist:root').user));
 
 // .currentUser.token;
-
 // export const publicRequest = axios.create({
 //   baseURL: BASE_URL,
 // });
@@ -14,6 +16,8 @@ const BASE_URL = 'https://homandoff-api.herokuapp.com/';
 //   baseURL: BASE_URL,
 //   // headers: { token: `Bearer ${TOKEN}` },
 // });
+
+// Original
 
 axios.defaults.baseURL = BASE_URL;
 let refresh = false;
@@ -30,25 +34,25 @@ axios.interceptors.response.use(
         { withCredentials: true }
       );
 
-      if (response.status === 200) {
-        let y = response.status;
-        console.log('successful refresh error 201 or 200', y);
-        axios.defaults.headers.common[
-          'Authorization'
-        ] = `Bearer ${response.data.token}`;
-        console.log('Refresh token interceptors completed successfully');
+      axios.defaults.headers.common[
+        'Authorization'
+      ] = `Bearer ${response.data.token}`;
+      console.log('Refresh token interceptors completed successfully');
 
-        return axios(error.config);
-      }
+      return axios(error.config);
     }
     if (error.response.status === 403) {
+      console.log('current error', error.response.status);
+
       console.log('For expired cookies 403', error.response.status);
       alert('Page has expired, please login again');
+
       window.location.replace('/login');
-      // await axios.post('auth/logout', {}, { withCredentials: true });
     }
 
     refresh = false;
     return error;
   }
 );
+
+// Case two

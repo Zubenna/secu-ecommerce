@@ -1,5 +1,6 @@
 import { resetCart } from './cartRedux';
 import axios from 'axios';
+// import CustomAxios from '../apiCalls/productApi';
 import {
   loginFailure,
   loginStart,
@@ -56,6 +57,7 @@ export const login = async (dispatch, user) => {
     // console.log('login token', res.data.accessToken);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     dispatch(loginSuccess(res.data));
+    // CustomAxios();
   } catch (err) {
     dispatch(loginFailure());
   }
@@ -74,7 +76,7 @@ export const register = async (dispatch, user) => {
 export const logout = async (dispatch) => {
   dispatch(logoutStart());
   try {
-    const res = await axios.post('auth/logout');
+    const res = await axios.get('auth/logout');
     dispatch(logoutSuccess(res.data));
   } catch (err) {
     dispatch(logoutFailure());
